@@ -33,7 +33,7 @@ Un serveur MCP (Modular Command Platform) qui fait le pont entre les agents IA, 
 
 1. **Cloner le repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Flo976/atlassian-mcp-server
 cd atlassian-mcp-server
 ```
 
