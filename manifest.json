@@ -1,0 +1,125 @@
+{
+  "name": "atlassian-mcp-server",
+  "version": "2.0.0",
+  "description": "Serveur MCP pour intégration Atlassian (Jira et Confluence) avec 15 outils fonctionnels",
+  "author": "Sooatek",
+  "license": "MIT",
+  "main": "mcp-server/src/index.ts",
+  "mcp": {
+    "server": {
+      "command": "npx",
+      "args": ["ts-node", "mcp-server/src/index.ts"],
+      "env": {
+        "ATLASSIAN_EMAIL": "",
+        "ATLASSIAN_API_TOKEN": "",
+        "ATLASSIAN_BASE_URL": ""
+      }
+    }
+  },
+  "keywords": [
+    "atlassian",
+    "jira",
+    "confluence", 
+    "mcp",
+    "model-context-protocol"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flo976/atlassian-mcp-server"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "zod": "^3.22.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "categories": ["productivity", "integration", "workflow"],
+  "tools": [
+    {
+      "name": "create_jira_issue",
+      "description": "Créer un ticket Jira"
+    },
+    {
+      "name": "get_jira_issue", 
+      "description": "Consulter un ticket Jira par clé"
+    },
+    {
+      "name": "update_jira_issue",
+      "description": "Modifier un ticket Jira"
+    },
+    {
+      "name": "transition_jira_issue",
+      "description": "Effectuer des transitions de statut"
+    },
+    {
+      "name": "comment_jira_issue",
+      "description": "Ajouter des commentaires"
+    },
+    {
+      "name": "search_jira_issues",
+      "description": "Recherche avancée par JQL"
+    },
+    {
+      "name": "list_jira_projects",
+      "description": "Lister tous les projets"
+    },
+    {
+      "name": "create_confluence_page",
+      "description": "Créer une page Confluence"
+    },
+    {
+      "name": "get_confluence_page",
+      "description": "Consulter une page par ID"
+    },
+    {
+      "name": "update_confluence_page", 
+      "description": "Modifier une page"
+    },
+    {
+      "name": "delete_confluence_page",
+      "description": "Supprimer une page"
+    },
+    {
+      "name": "add_confluence_comment",
+      "description": "Ajouter un commentaire"
+    },
+    {
+      "name": "list_confluence_spaces",
+      "description": "Lister tous les espaces"
+    },
+    {
+      "name": "search_confluence_pages",
+      "description": "Rechercher des pages"
+    },
+    {
+      "name": "get_confluence_page_children",
+      "description": "Gérer l'arborescence des pages"
+    }
+  ],
+  "configuration": {
+    "required": ["ATLASSIAN_EMAIL", "ATLASSIAN_API_TOKEN", "ATLASSIAN_BASE_URL"],
+    "properties": {
+      "ATLASSIAN_EMAIL": {
+        "type": "string",
+        "description": "Email de votre compte Atlassian",
+        "example": "user@company.com"
+      },
+      "ATLASSIAN_API_TOKEN": {
+        "type": "string",
+        "description": "Token API Atlassian (généré depuis https://id.atlassian.com/manage-profile/security/api-tokens)",
+        "sensitive": true
+      },
+      "ATLASSIAN_BASE_URL": {
+        "type": "string", 
+        "description": "URL de votre instance Atlassian",
+        "example": "https://company.atlassian.net"
+      }
+    }
+  },
+  "readme": "README.md"
+}

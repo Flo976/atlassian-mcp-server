@@ -14,7 +14,9 @@
     "watch": "cd mcp-server && npm run watch",
     "clean": "cd mcp-server && npm run clean",
     "test": "echo 'Tests located in tests/ folder'",
-    "lint": "cd mcp-server && npm run lint"
+    "lint": "cd mcp-server && npm run lint",
+    "build:dxt": "node build-dxt.js",
+    "package": "npm run build:dxt"
   },
   "keywords": [
     "atlassian",
@@ -32,5 +34,9 @@
   },
   "workspaces": [
     "mcp-server"
-  ]
+  ],
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.11.0"
+  }
 }

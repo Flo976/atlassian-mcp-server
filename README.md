@@ -102,6 +102,89 @@ Le serveur utilise le transport STDIO par défaut, compatible avec :
 - n8n avec MCP Client Tool Node
 - Tout client compatible MCP
 
+## 🖥️ Démarrage au Boot de l'Ordinateur
+
+### Procédure Manuelle (Recommandée)
+
+**Au démarrage de votre ordinateur, suivez ces étapes dans l'ordre :**
+
+1. **Ouvrir un terminal dans le projet**
+```bash
+# Naviguer vers le répertoire du serveur MCP
+cd C:\Users\[VotreNom]\Documents\GitHub\atlassian-mcp-server\mcp-server
+
+# Définir les variables d'environnement
+set ATLASSIAN_EMAIL=votre-email@company.com
+set ATLASSIAN_API_TOKEN=votre_token_api_atlassian
+set ATLASSIAN_BASE_URL=https://votre-entreprise.atlassian.net
+
+# Démarrer le serveur MCP
+npx ts-node src/index.ts
+```
+
+2. **Vérifier le démarrage**
+Vous devriez voir :
+```
+🚀 Starting Atlassian MCP Server...
+📍 REST API Base URL: http://localhost:3000
+🔧 Available Tools: 15
+   - Jira tools: 7
+   - Confluence tools: 8
+✅ MCP Server ready for connections via stdio
+💡 Connect with: n8n MCP Client, Claude Desktop, or other MCP clients
+```
+
+3. **Laisser le terminal ouvert**
+⚠️ **Important** : Ne fermez PAS ce terminal - le serveur MCP doit rester actif pour que Claude Code puisse s'y connecter.
+
+4. **Démarrer Claude Code**
+Une fois le serveur MCP lancé, démarrez Claude Code. Il se connectera automatiquement au serveur.
+
+### Démarrage Automatique (Optionnel)
+
+**Pour Windows - Script de démarrage automatique :**
+
+1. **Utiliser le script fourni**
+Le projet inclut déjà un script `start-mcp-server.bat` prêt à l'emploi.
+
+2. **Personnaliser les variables** (si nécessaire)
+Éditez `start-mcp-server.bat` et modifiez :
+```batch
+set ATLASSIAN_EMAIL=votre-email@company.com
+set ATLASSIAN_API_TOKEN=votre_token
+set ATLASSIAN_BASE_URL=https://votre-entreprise.atlassian.net
+```
+
+3. **Démarrage automatique**
+- Appuyez sur `Win + R` et tapez `shell:startup`
+- Créez un raccourci vers `start-mcp-server.bat` dans ce dossier
+- Le serveur se lancera automatiquement au démarrage de Windows
+
+4. **Test manuel**
+Double-cliquez sur `start-mcp-server.bat` pour tester le script
+
+### Vérification du Fonctionnement
+
+**Dans Claude Code :**
+1. Redémarrez Claude Code après avoir lancé le serveur MCP
+2. Vérifiez dans les paramètres MCP que `atlassian-mcp` apparaît comme connecté
+3. Les 15 outils Atlassian doivent être disponibles dans vos conversations
+
+**Test rapide :**
+Dans Claude Code, demandez : "Liste tous les projets Jira disponibles"
+
+### Dépannage
+
+**Si le serveur ne démarre pas :**
+- Vérifiez que Node.js et npm sont installés
+- Vérifiez que les variables d'environnement sont correctes
+- Vérifiez votre connexion internet
+
+**Si Claude Code ne se connecte pas :**
+- Vérifiez que le serveur MCP est en cours d'exécution
+- Redémarrez Claude Code
+- Vérifiez le fichier `claude_desktop_config.json`
+
 ## 🛠️ Outils MCP Disponibles
 
 Le serveur expose **15 outils MCP fonctionnels** organisés en 2 catégories principales :
