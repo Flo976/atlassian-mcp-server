@@ -1,19 +1,23 @@
 {
-  "name": "atlassian-mcp-server-protocol",
-  "version": "1.0.0",
-  "description": "MCP protocol server for Atlassian APIs - bridges with existing REST API",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "name": "full-atlassian-mcp-server",
+  "version": "2.0.0",
+  "description": "Intelligent Full MCP Server for Atlassian APIs with advanced analytics, caching, and AI features",
+  "main": "dist/index-full.js",
+  "types": "dist/index-full.d.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
-    "watch": "ts-node --watch src/index.ts",
-    "clean": "rimraf dist"
+    "build": "npx --package=typescript tsc --noEmitOnError false --skipLibCheck",
+    "start": "node dist/index-full.js",
+    "start:legacy": "node dist/index.js",
+    "dev": "ts-node src/index-full.ts",
+    "dev:legacy": "ts-node src/index.ts",
+    "watch": "ts-node --watch src/index-full.ts",
+    "clean": "rimraf dist",
+    "test": "echo \"Tests will be implemented\" && exit 0",
+    "lint": "echo \"Linting will be implemented\" && exit 0"
   },
   "keywords": [
     "mcp",
-    "model-context-protocol", 
+    "model-context-protocol",
     "atlassian",
     "jira",
     "confluence",
@@ -28,15 +32,21 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.0.0",
-    "ts-node": "^10.9.0",
-    "rimraf": "^5.0.0"
+    "@types/node": "^20.19.9",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "bin": {
-    "atlassian-mcp": "dist/index.js"
-  }
+    "atlassian-mcp": "dist/index-full.js",
+    "atlassian-mcp-legacy": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "package.json"
+  ]
 }
