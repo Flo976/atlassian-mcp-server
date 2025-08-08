@@ -1,6 +1,6 @@
 # Atlassian MCP Server
 
-Un serveur MCP (Model Context Protocol) intelligent qui fait le pont entre les agents IA et les APIs Atlassian Cloud (Jira et Confluence). Ce serveur implémente le protocole MCP avec des fonctionnalités avancées comme le cache intelligent, l'apprentissage contextuel et l'analytique prédictive.
+Un serveur MCP (Model Context Protocol) qui fait le pont entre les agents IA et les APIs Atlassian Cloud (Jira et Confluence). Le serveur fournit actuellement **15 outils MCP fonctionnels** pour les opérations essentielles sur Jira et Confluence, avec une architecture extensible prête pour les fonctionnalités avancées futures.
 
 ## 🚀 Fonctionnalités
 
@@ -104,63 +104,47 @@ Le serveur utilise le transport STDIO par défaut, compatible avec :
 
 ## 🛠️ Outils MCP Disponibles
 
-Le serveur expose plus de 40 outils MCP organisés en 5 catégories :
+Le serveur expose **15 outils MCP fonctionnels** organisés en 2 catégories principales :
 
-### 📋 Jira - Outils de Base
+### ✅ 📋 Jira - Outils de Base (7 outils - 100% fonctionnels)
 - `create_jira_issue` - Créer un ticket
-- `get_jira_issue` - Consulter un ticket
-- `update_jira_issue` - Modifier un ticket
-- `transition_jira_issue` - Changer le statut
-- `add_jira_comment` - Ajouter un commentaire
-- `search_jira_issues` - Recherche JQL
-- `list_jira_projects` - Lister les projets
+- `get_jira_issue` - Consulter un ticket par clé
+- `update_jira_issue` - Modifier un ticket (résumé, description, priorité, assigné)
+- `transition_jira_issue` - Effectuer des transitions de statut
+- `comment_jira_issue` - Ajouter des commentaires
+- `search_jira_issues` - Recherche avancée par JQL
+- `list_jira_projects` - Lister tous les projets
 
-### 📋 Jira - Outils Avancés
-- `bulk_create_jira_issues` - Création en masse
-- `get_jira_workflows` - Gestion des workflows
-- `jira_advanced_search` - Recherche avancée avec analytics
-- `get_jira_field_suggestions` - Suggestions intelligentes
-- `jira_bulk_transition` - Transitions en masse
-
-### 📄 Confluence - Outils de Base
+### ✅ 📄 Confluence - Outils de Base (8 outils - 100% fonctionnels)
 - `create_confluence_page` - Créer une page
-- `get_confluence_page` - Consulter une page
+- `get_confluence_page` - Consulter une page par ID
 - `update_confluence_page` - Modifier une page
 - `delete_confluence_page` - Supprimer une page
 - `add_confluence_comment` - Ajouter un commentaire
-- `list_confluence_spaces` - Lister les espaces
+- `list_confluence_spaces` - Lister tous les espaces
 - `search_confluence_pages` - Rechercher des pages
+- `get_confluence_page_children` - Gérer l'arborescence des pages
 
-### 📄 Confluence - Outils Avancés
-- `bulk_create_confluence_pages` - Création en masse
-- `confluence_template_management` - Gestion des templates
-- `confluence_content_analysis` - Analyse de contenu
-- `confluence_space_analytics` - Analytics des espaces
-- `sync_jira_confluence` - Synchronisation Jira ↔ Confluence
+### 🚧 Fonctionnalités En Développement
 
-### 📊 Analytics & Intelligence
-- `get_usage_analytics` - Statistiques d'utilisation
-- `predict_workload` - Prédictions de charge de travail
-- `suggest_optimizations` - Suggestions d'optimisation
-- `generate_reports` - Génération de rapports
-- `performance_insights` - Insights de performance
+Pour les fonctionnalités avancées planifiées (analytics, IA, opérations en masse), consultez notre [**ROADMAP.md**](ROADMAP.md) qui détaille :
+- **Phase 1** : Opérations en masse et analytics de base
+- **Phase 2** : Recherche intelligente et synchronisation
+- **Phase 3** : IA prédictive et automatisation avancée
 
-## 🎯 Fonctionnalités Intelligentes
+## 🏗️ Architecture Actuelle
 
-### 🧠 Cache Intelligent
-- **90%+ taux de cache** : Réduction drastique des appels API
-- **50k entrées** : Cache haute capacité avec nettoyage automatique
-- **Prédictif** : Pré-charge des données fréquemment utilisées
+### 🔧 Serveur MCP de Production
+- **Version stable** : Serveur MCP legacy avec 15 outils fonctionnels
+- **Protocol MCP** : Implémentation complète du Model Context Protocol
+- **Transport STDIO** : Communication optimisée pour les agents IA
+- **Validation Zod** : Schemas de validation stricts pour tous les outils
 
-### 👤 Apprentissage Contextuel
-- **Préférences utilisateur** : Mémorisation des habitudes
-- **Suggestions intelligentes** : Propositions basées sur l'historique
-- **Auto-complétion** : Champs automatiquement remplis
-
-### 📈 Analytics Avancées
-- **Métriques en temps réel** : Performance et utilisation
-- **Prédictions** : Anticipation des besoins futurs
-- **Optimisations** : Recommandations d'amélioration
+### 🚀 Infrastructure Avancée (Prête pour Extension)
+- **Cache Manager** : Infrastructure de cache intelligente (prête à utiliser)
+- **Context Manager** : Gestion des contextes utilisateur (implémentée)
+- **AtlassianClient** : Client API robuste avec gestion d'erreurs
+- **Tool Executor** : Moteur d'exécution extensible pour nouveaux outils
 
 ## 🛡️ Sécurité & Fiabilité
 
